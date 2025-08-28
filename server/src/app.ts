@@ -1,8 +1,10 @@
-// app.ts
+
 import express from "express";
 import morgan from "morgan";
 import healthRoutes from "./routes/health";
 import previewRoutes from "./routes/preview";
+import { rateLimiter } from "./middlewares/rateLimiter";
+
 
 const app = express();
 
@@ -12,6 +14,6 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/health", healthRoutes);
-app.use("/preview", previewRoutes);
+app.use("/preview", previewRoutes, rateLimiter);
 
 export default app;
