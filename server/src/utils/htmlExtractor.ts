@@ -14,13 +14,15 @@ export const extractMeta = (html: string, url: string): MetaPreview => {
 
   const title =
     $('meta[property="og:title"]').attr("content") ||
+    $('meta[name="twitter:title"]').attr("content") ||
     $("title").text() ||
-    undefined;
+    "No title";
 
   const image =
     $('meta[property="og:image"]').attr("content") ||
     $('meta[name="twitter:image"]').attr("content") ||
-    undefined;
+    $("img").first().attr("src") ||
+    "https://via.placeholder.com/150";
 
   const price =
     $('meta[property="product:price:amount"]').attr("content") ||
