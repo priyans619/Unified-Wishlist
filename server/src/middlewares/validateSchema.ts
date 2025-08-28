@@ -22,6 +22,15 @@ export function validateSchema(schemaFileName: string) {
         });
       }
 
+      const schema = JSON.parse(fs.readFileSync(schemaPath, "utf-8"));
+      const validate = ajv.compile(schema);
+
+      if (!validate(req.body)) {
+        return res.status(400).json({
+          errors: validate.errors,
+        });
+      }
+
       next();
     } catch (error) {
       return res.status(500).json({ error: "Schema validation failed" });
