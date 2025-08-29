@@ -61,7 +61,7 @@ Unified Wishlist is a cross-platform app (React Native frontend + Node.js backen
 ### Clone Repository
 ```
 - git clone https://github.com/<your-username>/Unified-Wishlist.git
-- cd weather-app
+- cd Unified-Wishlist
 ```
 
 ## Backend Setup
