@@ -67,7 +67,7 @@ Unified Wishlist is a cross-platform app (React Native frontend + Node.js backen
 ## Backend Setup
 
 ```
-- cd backend
+- cd server
 - npm install
 ```
 
@@ -80,7 +80,7 @@ Unified Wishlist is a cross-platform app (React Native frontend + Node.js backen
 ## Frontend Setup
 ### In src/api
 ```
-- For preview- API_BASE= http://localhost:5000/api/prview
+- For preview- API_BASE= http://localhost:5000/api/preview
 
 ```
 ### .env file
@@ -92,7 +92,7 @@ PORT=5000
 ```
 
 ```
-- cd frontend
+- cd app
 
 - npm install
 ```
@@ -100,7 +100,7 @@ PORT=5000
 ```
 - Run frontend: npm run dev
 
-- Weba will run at → http://localhost:0000
+- Web will run at → http://localhost:0000
 ```
 ---
 
