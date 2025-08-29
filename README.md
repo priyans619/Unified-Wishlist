@@ -113,6 +113,21 @@ Backend endpoint: http://192.168.1.2:5000/api/preview
 
 Example- http://192.168.1.2:5000/api/preview -H "Content-Type: application/json" -d "{\"url\":\"https://example.com\"}"
 (This endpoint will return JSON data for preview)
+
+Relpace localhost with LAN IP
+- Check /health (should always succeed)
+  curl -i http://localhost:3000/health 
+
+- Check /preview with a safe URL (like example.com)
+  curl -i "http://localhost:3000/preview?url=https://example.com"
+
+  Expected: Returns metadata or preview JSON.
+
+- Check /preview with a blocked URL (private IP)
+  curl -i "http://localhost:3000/preview?url=http://127.0.0.1:22"
+
+  Expected: Should return 400 or 403 with Blocked unsafe private/internal IP address
+-
 ```
 
 # Thanks 😊😊
