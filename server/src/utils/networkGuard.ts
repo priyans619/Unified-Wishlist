@@ -1,12 +1,12 @@
-
+// networkGuard.ts
 import { URL } from "url";
 import dns from "dns/promises";
 
-/**
- * Validates that a URL is safe to fetch:
- * - Uses http/https only
- * - Host resolves to a public IP (not localhost/private/internal)
- */
+
+//  * Validates that a URL is safe to fetch:
+//  * - Uses http/https only
+//  * - Host resolves to a public IP (not localhost/private/internal)
+ 
 export async function validateSafeUrl(inputUrl: string): Promise<void> {
   let url: URL;
   try {
@@ -33,7 +33,7 @@ export async function validateSafeUrl(inputUrl: string): Promise<void> {
 
 
 //  Checks if IP is private, loopback, or reserved
- 
+
 function isPrivateIp(ip: string): boolean {
   return (
     ip === "127.0.0.1" || // localhost
