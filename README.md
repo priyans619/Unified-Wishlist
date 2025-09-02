@@ -7,35 +7,35 @@ Unified Wishlist is a cross-platform app (React Native frontend + Node.js backen
 
 ```/Unified-Wishlist
 │
-├── server/   # Node.js + Express
+├── server/   # Node.js + Express backend (unchanged)
 │   ├── src/
-│   │   ├── utils/       # helper function
-│   │   ├── routes/      # API routes
-│   │   ├── controllers/ # API logic
-│   │   ├── index.ts    # Main entrypoint
-│   │   └── config/     
+│   │   ├── utils/        # helper functions
+│   │   ├── routes/       # API routes
+│   │   ├── controllers/  # API logic
+│   │   ├── index.ts      # Main entrypoint
+│   │   └── config/       
 │   ├── package.json
 │   └── .env
 │
-├── app/  # RN-expo + Nativewind CSS app
-│   ├── src/
-│   │   ├── app/          # route folder
-│   │   ├── components/   # UI components
-│   │   ├── context/      # Context API global state
-│   │   ├── types/        # typecheck
-│   │   ├── config/       # App-level configs (e.g., baseUrl.ts)
-│   │   ├── hooks/        # Custom React hooks
-│   │   └── App.ts
+├── client/  # RN-expo + Nativewind CSS frontend
+│   ├── app/          # expo-router navigation
+│   ├── components/   # UI components
+│   ├── context/      # Context API (WishlistProvider etc.)
+│   ├── assets/       # Images, fonts, icons
+│   ├── types/        # TypeScript type definitions
+│   ├── config/       # App-level configs (e.g., baseUrl.ts)
+│   ├── App.tsx       # Root app entry
 │   ├── package.json
 │   └── .env
 │
 └── README.md
 
+
 ```
 ##  Technologies
 
 ### **Frontend**
-- **ReactNative (Expo)** – Frontend framework  
+- **ReactNative (Expo)** – Mobile framework  
 - **Native WInd CSS** – Styling and UI components  
 - **Axios** – API communication  
 - **React Context API** – State management  
@@ -74,7 +74,7 @@ Unified Wishlist is a cross-platform app (React Native frontend + Node.js backen
 ```
 - Run backend: npm run dev
 
-- API will run at → http://localhost:5000/api
+- Server will run at → http://localhost:5000/
 ```
 
 ## Frontend Setup
@@ -84,7 +84,8 @@ Unified Wishlist is a cross-platform app (React Native frontend + Node.js backen
 
 ```
 ### .env file
-**Create .env file in backend**
+
+**Create .env file in fronted rest base.url config will cover the port for all devices**
 ```
 LAN_IP=192.168.1.2
 
@@ -98,28 +99,30 @@ PORT=5000
 ```
 
 ```
-- Run frontend: npm run dev
+- Run frontend: npm expo start
 
-- Web will run at → http://localhost:0000
+- Web will run at → http://localhost:8081
+- Press a to run on emulator device
+
 ```
 ---
 
 ## 📑 API Documentation
 
 ```
-Base URL- http://192.168.1.2:5000/
+Base URL- http://localhost:5000/preview
 
-Backend endpoint: http://192.168.1.2:5000/api/preview
+Backend endpoint: http://localhost:5000/api/preview
 
-Example- http://192.168.1.2:5000/api/preview -H "Content-Type: application/json" -d "{\"url\":\"https://example.com\"}"
+Example- http://localhost:5000/api/preview -H "Content-Type: application/json" -d "{\"url\":\"http://localhost:5000/api/preview"}"
 (This endpoint will return JSON data for preview)
 
-Relpace localhost with LAN IP
+Relpace localhost with LAN IP if using Physical devices
 - Check /health (should always succeed)
   curl -i http://localhost:3000/health 
 
-- Check /preview with a safe URL (like example.com)
-  curl -i "http://localhost:3000/preview?url=https://example.com"
+- Check /preview with a safe URL (like nike.com)
+  curl -i "http://localhost:3000/preview?url=https://www.nike.com/in/t/vaporfly-4-road-racing-shoes-PTwDtp/"
 
   Expected: Returns metadata or preview JSON.
 
