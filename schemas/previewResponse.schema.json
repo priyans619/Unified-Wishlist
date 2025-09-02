@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PreviewResponse",
+  "type": "object",
+  "properties": {
+    "title": { "type": ["string", "null"] },
+    "image": { "type": ["string", "null"] },
+    "price": { "type": ["string", "null"] },
+    "currency": { "type": ["string", "null"] },
+    "siteName": { "type": ["string", "null"] },
+    "sourceUrl": { "type": ["string", "null"] },
+    "thumbnail_url": { "type": ["string", "null"] },
+    "_debug": { "type": "object" }
+  },
+  "required": ["title", "image", "siteName", "sourceUrl", "_debug"],
+  "additionalProperties": true
+}
